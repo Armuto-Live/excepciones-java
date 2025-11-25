@@ -10,14 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class Operaciones {
     @GetMapping
     public String divide(@RequestParam String numero){
-        try {
-            int valor = Integer.parseInt(numero);
-            int resultado = 20 / valor;
-            return "El resultado es: " + resultado;
-        }catch (NumberFormatException ERROR){
-            return "Error: el valor ingresado " + numero + " no es un número";
-        }catch (ArithmeticException ERROR){
-            return "NO se puede dividir entre 0";
-        }
+        int valor = Integer.parseInt(numero);
+        int resultado = 20 / valor;
+        return "El resultado es: " + resultado;
+    }
+}
+
+@RestController
+class ObjetoNull{
+    @GetMapping("/valornulo")
+    public String nulo(){
+        String valorNulo = null;
+        valorNulo.length();
+
+        return "Valor nulo en la variable";
     }
 }

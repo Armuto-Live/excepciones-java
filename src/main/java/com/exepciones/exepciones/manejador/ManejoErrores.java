@@ -13,5 +13,13 @@ public class ManejoErrores {
         return new ResponseEntity<>("Error: división entre 0 no permitida", HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<String> handleNullPointerException(NullPointerException ERROR){
+        return new ResponseEntity<>("Error: el valor de la variable no debe ser null", HttpStatus.BAD_REQUEST);
+    }
 
+    @ExceptionHandler(NumberFormatException.class)
+    public ResponseEntity<String> handleNumberFormatException(NumberFormatException ERROR){
+        return new ResponseEntity<>("Error: NO es un valor entero", HttpStatus.BAD_REQUEST);
+    }
 }
